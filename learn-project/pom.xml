@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hsf.learn</groupId>
+        <artifactId>hsf-learn</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.hsf.learn.project</groupId>
+    <artifactId>learn-project</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>learn-project</name>
+    <packaging>pom</packaging>
+    <description>Demo project for Spring Boot</description>
+    <modules>
+        <module>project-blog</module>
+        <module>project-common</module>
+        <module>project-auth-service</module>
+        <module>project-demo</module>
+        <module>project-gmall</module>
+        <module>project-sc-alibaba</module>
+        <module>beacon-app</module>
+        <module>beacon-backend</module>
+        <module>beacon-iot</module>
+        <module>hsf-muxin</module>
+    </modules>
+</project>

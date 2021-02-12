@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hsf.learn</groupId>
+        <artifactId>hsf-learn</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.hsf.learn.core</groupId>
+    <artifactId>learn-core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>learn-core</name>
+    <packaging>pom</packaging>
+    <description>Demo project for Spring Boot</description>
+    <modules>
+        <module>core-mapper</module>
+        <module>core-model</module>
+        <module>core-service</module>
+    </modules>
+
+</project>

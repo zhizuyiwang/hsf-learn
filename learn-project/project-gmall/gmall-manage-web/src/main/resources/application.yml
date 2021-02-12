@@ -1,0 +1,62 @@
+# 项目相关配置
+hsf:
+  # 名称
+  name: hsfLearn
+  # 版本
+  version: 1.0.0
+  # 版权年份
+  copyrightYear: 2020
+  # 文件路径
+  profile: /opt/web/app/profile/
+  # 获取ip地址开关
+  addressEnabled: true
+  appAddress: http://101.37.247.82:8026
+  sms: http://127.0.0.1:8099
+
+server:
+  port: 8077
+  servlet:
+    #项目contextPath
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    threads:
+      # tomcat最大线程数，默认为200
+      max: 200
+      # Tomcat启动初始化的线程数，默认值25
+      min-spare: 30
+
+spring:
+  application:
+    name: learn
+  flyway:
+    enabled: false
+  main:
+    allow-bean-definition-overriding: true
+  #异常处理
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+
+logging:
+  level:
+    root: info
+
+dubbo:
+  application:
+    name: manage-web
+    version: 1.0.0
+  registry:
+    address: 192.168.95.100:2181
+    protocol: zookeeper
+#    group: paopao
+  protocol:
+    name: dubbo
+    port: 20880
+  consumer:
+    timeout: 60000
+    check: false
+
+

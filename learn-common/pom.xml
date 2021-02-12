@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hsf.learn</groupId>
+        <artifactId>hsf-learn</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.hsf.learn.common</groupId>
+    <artifactId>learn-common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>learn-common</name>
+    <packaging>pom</packaging>
+    <description>Demo project for Spring Boot</description>
+    <modules>
+        <module>common-redis</module>
+        <module>common-kafka</module>
+        <module>common-netty</module>
+        <module>common-mqtt</module>
+        <module>common-cloud</module>
+        <module>common-swagger2</module>
+        <module>common-zookeeper</module>
+        <module>common-dubbo</module>
+    </modules>
+
+</project>

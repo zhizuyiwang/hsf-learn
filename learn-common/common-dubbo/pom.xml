@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hsf.learn.common</groupId>
+        <artifactId>learn-common</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.hsf.learn.common.dubbo</groupId>
+    <artifactId>common-dubbo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>common-dubbo</name>
+    <packaging>jar</packaging>
+    <description>dubbo通用模块</description>
+
+    <dependencies>
+        <!--dubbo框架-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

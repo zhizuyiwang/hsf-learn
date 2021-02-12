@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hsf.learn.project</groupId>
+        <artifactId>learn-project</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.hsf.learn.project.common</groupId>
+    <artifactId>project-common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>project-common</name>
+    <packaging>pom</packaging>
+    <description>统一登录验证模块</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.hsf.learn.utils</groupId>
+            <artifactId>web-utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hsf.learn.common.dubbo</groupId>
+            <artifactId>common-dubbo</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hsf.learn.common.zookeeper</groupId>
+            <artifactId>common-zookeeper</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hsf.learn.common.redis</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

@@ -1,0 +1,131 @@
+# 项目相关配置
+hsf:
+  # 名称
+  name: hsfLearn
+  # 版本
+  version: 1.0.0
+  # 版权年份
+  copyrightYear: 2020
+  # 文件路径
+  profile: /opt/web/app/profile/
+  # 获取ip地址开关
+  addressEnabled: true
+  appAddress: http://101.37.247.82:8026
+  sms: http://127.0.0.1:8099
+
+server:
+  port: 8076
+  servlet:
+    #项目contextPath
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    threads:
+      # tomcat最大线程数，默认为200
+      max: 200
+      # Tomcat启动初始化的线程数，默认值25
+      min-spare: 30
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/gmall_study?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    hikari:
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  application:
+    name: learn
+  flyway:
+    enabled: false
+  main:
+    allow-bean-definition-overriding: true
+  #异常处理
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+
+  # 文件上传
+  servlet:
+    multipart:
+      # 单个文件大小
+      max-file-size:  10MB
+      # 设置总上传的文件大小
+      max-request-size:  20MB
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
+  # Redis数据库索引（默认为0）
+  redis:
+    database: 0
+    # Redis服务器地址
+    host: localhost
+    # Redis服务器连接端口
+    port: 6379
+    password: 123456
+    # 连接池最大连接数（使用负值表示没有限制）
+    jedis:
+      pool:
+        max-active: 1024
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 10000
+        # 连接池中的最大空闲连接
+        max-idle: 200
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    # 连接超时时间（毫秒）
+    timeout: 10000
+  #返回时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis:
+  mapper-locations:  classpath:/mapper/**/*Mapper.xml
+  type-aliases-package: com.hsf.learn.core.model
+  configuration:
+    map-underscore-to-camel-case: true
+  # 加载全局的配置文件
+#  config-location: classpath:mapper/mybatis-config.xml
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+  type-aliases-package: com.hsf.learn.core.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #加载全局的配置文件
+#  config-location: classpath:mapper/mybatis-config.xml
+  global-config:
+    db-config:
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      id-type: auto
+
+
+logging:
+  level:
+    root: info
+#
+#dubbo:
+#  application:
+#    name: manage-service
+#    version: 1.0.0
+#  registry:
+#    address: 192.168.95.100:2181
+#    protocol: zookeeper
+##    group: paopao
+#  scan:
+#    base-packages: com.hsf.learn.gmall.manage.service
+#  protocol:
+#    name: dubbo
+#    port: 20880
+
+
+
