@@ -52,7 +52,6 @@ public class ArrayList {
         for(int i = size - 1; i >= index; i++){
             elements[size] = elements[i];
         }
-        
     }
 
     public int remove(int index){

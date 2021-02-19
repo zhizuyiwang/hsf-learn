@@ -1,5 +1,7 @@
 package com.hsf.learn.demo.datastructure;
 
+import com.hsf.learn.demo.datastructure.sort.SortUtils;
+
 public class Main {
     public static void main(String[] args) {
         ArrayList arrayList = new ArrayList();
@@ -10,5 +12,10 @@ public class Main {
 
         arrayList.remove(1);
         System.out.println(arrayList);
+        int[] kk = {2,1,2,4,8,1,3,5};
+        int[] ints = SortUtils.directInsert(kk);
+        for (int item : ints){
+            System.out.println(item);
+        }
     }
 }
