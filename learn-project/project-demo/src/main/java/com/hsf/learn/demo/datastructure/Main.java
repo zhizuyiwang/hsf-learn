@@ -13,7 +13,7 @@ public class Main {
         arrayList.remove(1);
         System.out.println(arrayList);
         int[] kk = {2,1,2,4,8,1,3,5};
-        int[] ints = SortUtils.directInsert(kk);
+        int[] ints = SortUtils.selectSort(kk);
         for (int item : ints){
             System.out.println(item);
         }
