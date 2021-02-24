@@ -126,6 +126,9 @@ public class SortUtils {
 
     /**
      * 六、交换排序之冒泡排序
+     * 步骤：
+     * 1、比较相邻两个元素，较大的元素排到后面
+     * 2、对每一对相邻的元素都比较，从第一对到最后一对，这样最后的元素就是最大的
      *
      * @param array
      * @return
@@ -140,9 +143,56 @@ public class SortUtils {
                 }
             }
         }
-
         return array;
     }
+
+    /**
+     * 冒泡排序的另一种形式是记录循环一次，已排序序列中值值最小的数的位置
+     * @param array
+     * @return
+     */
+    public static int[] bubbleSort2(int[] array){
+        int i = array.length - 1;//开始排序时，假设最后一个存最大的
+        while (i > 0){
+            int flag = 0;//每次循环比较开始时清空上一次循环记录的已排序序列中最小值的位置
+            for(int j = 0; j < i; j++){
+                if(array[j] > array[j+1]){
+                    flag = j;
+                    int temp = array[j+1];
+                    array[j+1] = array[j];
+                    array[j] = temp;
+                }
+            }
+            i = flag;//flag存放已排序序列最小值的位置，也是未排序序列中值最大的位置
+        }
+        return array;
+    }
+
+    /**
+     * 冒泡排序第三种方式，每循坏排序一次，正向冒泡一次，记录从最大位置开始已排序序列最小值的位置high，
+     * 然后反向冒泡，在从最小位置开始已排序序列中找到值最大的数据的位置low，当 low>=high时，循环结束
+     * 这样的好处是一次外部循环，可以把原来就已经有序的序列剔除未排序序列之外
+     * @param array
+     * @return
+     */
+    public static int[] bubbleSort3(int[] array){
+        int low = 0;//开始时，假设第一个是，从最小位置开始已排序序列的最大值
+        int high = array.length - 1;//开始排序时，假设最后一个是，从最大位置开始已排序序列的最小值
+//        while (i > 0){
+//            int flag = 0;//每次循环比较开始时清空上一次循环记录的已排序序列中最小值的位置
+//            for(int j = 0; j < i; j++){
+//                if(array[j] > array[j+1]){
+//                    flag = j;
+//                    int temp = array[j+1];
+//                    array[j+1] = array[j];
+//                    array[j] = temp;
+//                }
+//            }
+//            i = flag;//flag存放已排序序列最小值的位置，也是未排序序列中值最大的位置
+//        }
+        return array;
+    }
+
 
     /**
      * 七、交换排序之快速排序
