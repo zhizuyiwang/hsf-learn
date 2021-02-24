@@ -178,18 +178,29 @@ public class SortUtils {
     public static int[] bubbleSort3(int[] array){
         int low = 0;//开始时，假设第一个是，从最小位置开始已排序序列的最大值
         int high = array.length - 1;//开始排序时，假设最后一个是，从最大位置开始已排序序列的最小值
-//        while (i > 0){
-//            int flag = 0;//每次循环比较开始时清空上一次循环记录的已排序序列中最小值的位置
-//            for(int j = 0; j < i; j++){
-//                if(array[j] > array[j+1]){
-//                    flag = j;
-//                    int temp = array[j+1];
-//                    array[j+1] = array[j];
-//                    array[j] = temp;
-//                }
-//            }
-//            i = flag;//flag存放已排序序列最小值的位置，也是未排序序列中值最大的位置
-//        }
+        while (low < high){
+            int tempLow = 0, tempHigh = 0;//每次循环比较开始时清空最大、最小值的记录
+            for(int i = low; i < high; i++){//正向冒泡
+                if(array[i] > array[i+1]){
+                    int temp = array[i+1];
+                    array[i+1] = array[i];
+                    array[i] = temp;
+                    tempHigh = i;
+                }
+            }
+            high = tempHigh;//flag存放已排序序列最小值的位置，也是未排序序列中值最大的位置
+
+            for(int j = high; j > low; j--){//反向冒泡
+                if(array[j] < array[j-1]){
+                    int temp = array[j+1];
+                    array[j-1] = array[j];
+                    array[j] = temp;
+                    tempLow = j;
+                }
+            }
+            low = tempLow;//flag存放已排序序列最大值的位置，也是未排序序列中值最小的位置
+
+        }
         return array;
     }
 
