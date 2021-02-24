@@ -192,7 +192,7 @@ public class SortUtils {
 
             for(int j = high; j > low; j--){//反向冒泡
                 if(array[j] < array[j-1]){
-                    int temp = array[j+1];
+                    int temp = array[j-1];
                     array[j-1] = array[j];
                     array[j] = temp;
                     tempLow = j;
