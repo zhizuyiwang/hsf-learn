@@ -206,20 +206,89 @@ public class SortUtils {
 
 
     /**
-     * 七、交换排序之快速排序
+     * 七、交换排序之快速排序(递归法排序)
      *
+     * 待排序列s[l...h],选取第一个坐标l和最后一个坐标h，取一个基准值s[l]=base，一般是第一个元素为基准值
+     * 思路：
+     * 1、从high端开始往后扫描，找出s[high]<base基准值的数，并把s[high]赋值到s[low]上，可以先不交换值
+     * 2、从low端开始往前扫描，找出s[low]>base基准值的数，并把s[low]赋值到s[high]上，可以先不交换值
+     * 3、重复1，2步骤直到high>low不满足条件，跳出循环，此时low便是基准值的中间位置，把base基准值赋值给s[low]
+     * 4、此时把序列分为两个序列，分别对这两个序列重复以上步骤直到所有递归不满足条件
      *
+     * 快速排序是一个不稳定的排序方法
      * @param array
      * @return
      */
     public static int[] quickSort(int[] array){
-
+        if(array == null || array.length==0){
+            return array;
+        }
+        quickRealSort(array,0,array.length-1);
         return array;
+    }
+
+    private static void quickRealSort(int[] array, int start, int end) {
+        int index = getIndex(array,start,end);
+        if(index > start+1){
+            quickRealSort(array,start,index-1);//排序左边
+        }
+        if(index < end-1){
+            quickRealSort(array,index+1,end);//排序右边
+        }
+    }
+
+    /**
+     * 一趟快排
+     * 确定一个基准，把小于基准的数据移到前面去，大于基准的移到后面，确定基准的位置
+     * @param array
+     * @param start
+     * @param end
+     * @return
+     */
+    private static int getIndex(int[] array, int start, int end) {
+        int low = start,high = end;
+        int base = array[low];//缓存基准值
+        while (low < high){
+            //从后往前，大于基准的数据不管，小于基准的移动到前面去
+            while (low < high && array[high] > base){
+                high--;
+            }
+//            int tempLow = array[high];
+//            array[high] = array[low];
+//            array[low] = tempLow;
+            /*
+             * 出了上面循环，high指针肯定指向它找到的后面的第一个小于基准的数据
+             * 把该数据移到到前面
+             */
+            array[low] = array[high];
+            //从前往后，小于基准的数据不管，大于基准的移动到后面去
+            while (low < high && array[low] <= base){
+                low++;
+            }
+            /*
+             * 出了上面循环，low指针肯定指向它找到的前面的第一个大于于基准的数据
+             * 把该数据移到到后面
+             */
+            array[high] = array[low];
+//            int tempHigh = array[low];
+//            array[low] = array[high];
+//            array[high] = tempHigh;
+        }
+        /*
+         *最后出来，low和high指针在同一位置，都指向基准应该放置的位置
+         * 小于它的都在前面，大于它的都在后面
+         */
+        array[low] = base;
+        /*
+         *把基准最后的位置返回出去，基准的位置已经确定，即基准已经有序
+         *后面分别在这个基准位置两边重复上面的操作，用以排序当前基准两
+         *边的数据
+         */
+        return low;
     }
 
     /**
      * 八、归并排序
-     *
      *
      * @param array
      * @return
@@ -237,7 +306,6 @@ public class SortUtils {
      * @return
      */
     public static int[] baseSort(int[] array){
-
         return array;
     }
 }

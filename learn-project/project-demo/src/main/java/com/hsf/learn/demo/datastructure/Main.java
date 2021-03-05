@@ -12,8 +12,8 @@ public class Main {
 
         arrayList.remove(1);
         System.out.println(arrayList);
-        int[] kk = {2,1,2,4,8,1,3,5};
-        int[] ints = SortUtils.bubbleSort3(kk);
+        int[] kk = {2,1,2,4,8,1,3,5,3,17,27,24,13,6,9};
+        int[] ints = SortUtils.quickSort(kk);
         for (int item : ints){
             System.out.println(item);
         }
