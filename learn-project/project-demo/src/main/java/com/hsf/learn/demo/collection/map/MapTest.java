@@ -7,12 +7,12 @@ public class MapTest {
 
     public static void main(String[] args) {
 
-        HashMap<String, Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>(10);
+
 
         map.put("name","hsf");
         map.put("age",123);
         map.put("sex","女");
-
 
         for (Map.Entry<String, Object> entry : map.entrySet()){
             System.out.println("key=="+entry.getKey()+",value=="+entry.getValue());

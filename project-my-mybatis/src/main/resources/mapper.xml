@@ -1,0 +1,14 @@
+
+<mapper namespace="com.hsf.my.netty.batis.dao.UserMapper">
+
+    <select id="findByNameAndId" parameterType="com.hsf.my.netty.batis.pojo.User"
+            resultType="com.hsf.my.netty.batis.pojo.User">
+        select id,username from user where id = # {id} and username = # {username}
+    </select>
+
+    <select id="findAll" parameterType="com.hsf.my.netty.batis.pojo.User"
+            resultType="com.hsf.my.netty.batis.pojo.User">
+        select * from user
+    </select>
+
+</mapper>

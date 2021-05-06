@@ -22,6 +22,13 @@
         <module>learn-project</module>
         <module>learn-backend</module>
         <module>learn-core</module>
+        <module>project-my-mybatis</module>
+        <module>project-my-rpc</module>
+        <module>project-my-tomcat</module>
+        <module>project-spring-cloud</module>
+        <module>project-my-netty-zookeeper-redis</module>
+        <module>project-my-mvc-demo</module>
+        <module>project-my-custome-mvc</module>
     </modules>
 
     <properties>
