@@ -14,6 +14,11 @@ public class ResumeController {
     private IResumeService resumeService;
     @GetMapping("/openstate/{userId}")
     public Integer findDefaultResumeByUserId(@PathVariable Long userId){
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
         return resumeService.findDefaultResumeByUserId(userId).getIsOpenResume();
     }
 }

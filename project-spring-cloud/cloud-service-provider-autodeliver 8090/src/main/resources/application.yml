@@ -15,4 +15,19 @@ eureka:
     service-url: # eureka server的路径
       #把 eureka 集群中的所有 url 都填写了进来，也可以只写⼀台，因为各个 eureka server 可以同步注册表
       defaultZone:
-        http://cloudeurekaservera:8761//eureka/,http://cloudeurekaserverb:8762/eureka/
+        http://cloudeurekaservera:8761/eureka/,http://cloudeurekaserverb:8762/eureka/
+
+#cloud-service-resume:
+# ribbon:
+#  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #负载策略调整
+
+# springboot中暴露健康检查等断点接⼝
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # 暴露健康接⼝的细节
+  endpoint:
+    health:
+      show-details: always

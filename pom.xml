@@ -29,6 +29,16 @@
         <module>project-my-netty-zookeeper-redis</module>
         <module>project-my-mvc-demo</module>
         <module>project-my-custome-mvc</module>
+        <module>project-z-my-kkb-bigdata</module>
+        <module>project-my-spring</module>
+        <module>project-my-thread</module>
+        <module>project-my-dubbo</module>
+        <module>project-my-java-spi</module>
+        <module>project-my-mq</module>
+        <module>project-my-redis</module>
+        <module>Docker-Spring_demo</module>
+        <module>Docker-Spring-Mybatis</module>
+        <module>project-my-job</module>
     </modules>
 
     <properties>

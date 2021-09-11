@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="teacher" class="com.hsf.spring.lagou.TeacherImpl">
+        <property name="Student" ref="student"/>
+    </bean>>
+    <bean id="student" class="com.hsf.spring.lagou.StudentImpl" />
+</beans>

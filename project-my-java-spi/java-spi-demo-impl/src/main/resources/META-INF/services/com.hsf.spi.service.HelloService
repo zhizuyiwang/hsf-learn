@@ -1,0 +1,2 @@
+com.hsf.spi.service.impl.HumanHelloService
+com.hsf.spi.service.impl.DogHelloService

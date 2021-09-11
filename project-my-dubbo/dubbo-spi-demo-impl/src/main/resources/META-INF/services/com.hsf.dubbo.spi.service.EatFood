@@ -1,0 +1,2 @@
+catEat=com.hsf.dubbo.spi.service.impl.CatEatFood
+dogEat=com.hsf.dubbo.spi.service.impl.DogEatFood

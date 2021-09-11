@@ -1,0 +1,2 @@
+humanHello=com.hsf.dubbo.spi.service.impl.HumanHelloService
+dogHello=com.hsf.dubbo.spi.service.impl.DogHelloService

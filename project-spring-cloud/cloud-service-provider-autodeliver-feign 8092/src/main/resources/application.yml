@@ -1,0 +1,88 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: cloud-service-autodeliver
+
+  zipkin:
+    base-url: http://127.0.0.1:9441 # zipkin server的请求地址
+    sender:
+      # web: 客户端将踪迹⽇志数据通过⽹络请求的⽅式传送到服务端，另外还有配置
+      # kafka/rabbit: 客户端将踪迹⽇志数据传递到mq进⾏中转
+      type: web
+  sleuth:
+    sampler:
+      # 采样率 1 代表100%全部采集 ，默认0.1 代表10% 的请求踪迹数据会被采集
+      # ⽣产环境下，请求量⾮常⼤，没有必要所有请求的踪迹数据都采集分析，对
+      #于⽹络包括server端压⼒都是⽐较⼤的，可以配置采样率采集⼀定⽐例的请求的踪迹
+      #数据进⾏分析即可
+      probability: 1
+
+eureka:
+  instance:
+    #使⽤ip注册，否则会使⽤主机名注册了（此处考虑到对⽼版本的兼容，新版本经过实验都是ip）
+    prefer-ip-address: true
+    #⾃定义实例显示格式，加上版本号，便于多版本管理，注意是ip-address，早期版本是ipAddress
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+  client:
+    service-url: # eureka server的路径
+      #把 eureka 集群中的所有 url 都填写了进来，也可以只写⼀台，因为各个 eureka server 可以同步注册表
+      defaultZone:
+        http://cloudeurekaservera:8761/eureka/,http://cloudeurekaserverb:8762/eureka/
+
+cloud-service-resume:
+  ribbon:
+    #请求连接超时时间
+    ConnectTimeout: 2000
+    #请求处理超时时间
+    ReadTimeout: 15000
+    #对所有操作都进⾏重试
+    OkToRetryOnAllOperations: true
+    ####根据如上配置，当访问到故障请求的时候，它会再尝试访问一次当前实例（次数由MaxAutoRetries配置），
+    ####如果不行，就换一个实例进行访问，如果还不行，再换一次实例访问（更换次数由MaxAutoRetriesNextServer配置），
+    ####如果依然不行，返回失败信息。
+    MaxAutoRetries: 0 #对当前选中实例重试次数，不包括第⼀次调⽤
+    MaxAutoRetriesNextServer: 0 #切换实例的重试次数
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #负载策略调整
+
+
+
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true # 开启请求压缩
+      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型，此处也是默认值
+      min-request-size: 2048 # 设置触发压缩的⼤⼩下限，此处也是默认值
+    response:
+      enabled: true # 开启响应压缩
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            ##Hystrix的超时时长设置
+            timeoutInMilliseconds: 5000
+
+
+# springboot中暴露健康检查等断点接⼝
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # 暴露健康接⼝的细节
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.hsf.cloud.autodeliver.service.ResumeFeignClient: debug
+    org.springframework.web.servlet.DispatcherServlet: debug
+    org.springframework.cloud.sleuth: debug

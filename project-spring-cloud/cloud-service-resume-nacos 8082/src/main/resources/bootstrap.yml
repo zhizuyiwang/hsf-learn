@@ -1,0 +1,39 @@
+server:
+  port: 8082
+
+Spring:
+  application:
+    name: cloud-service-resume
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+    username: root
+    password: 123456
+
+  jpa:
+    database: MySQL
+    show-sql: true
+    hibernate:
+      naming:
+        #避免将驼峰命名转换为下划线命名
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.95.100:8848, 192.168.95.110:8848,192.168.95.120:8848
+        cluster-name: BJ
+      config:
+        namespace: 560bd42b-c73b-4707-b4aa-0712999b54fe
+        server-addr: 192.168.95.100:8848,192.168.95.110:8848,192.168.95.120:8848
+        group: DEFAULT_GROUP
+        file-extension: yaml
+        ext-config[0]:
+          data-id: abc.yaml
+          group: DEFAULT_GROUP
+          refresh: true #开启扩展dataId的动态刷新
+        ext-config[1]:
+          data-id: bcd.yaml
+          group: DEFAULT_GROUP
+          refresh: true #开启扩展dataId的动态刷新
+
+

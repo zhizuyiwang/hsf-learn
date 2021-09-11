@@ -1,0 +1,65 @@
+server:
+  port: 8001
+  servlet:
+    encoding:
+      force-response: true
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC
+    username: root
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+
+  messages: #配置国际化文件基础名
+    basename: i18n.login
+
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+
+
+mybatis:
+  #配置mybatis映射配置文件中实体类别名
+  type-aliases-package: com.hsf.boot.test.pojo
+  #配置mybatis的xml映射配置文件路径
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #开启驼峰命名匹配映射
+    map-underscore-to-camel-case: true
+
+
+
+
+
+
+person:
+  id: 1
+  hobby:
+    eat,
+    run,
+    learn1234
+  family:
+    - father2
+    - mother2
+  map:
+    k1: v1
+    k2: v2
+  pet:
+    type: dog
+    name: Jim
+  name: po
+
+simple:
+  id: 12345
+  name: hsf
+
